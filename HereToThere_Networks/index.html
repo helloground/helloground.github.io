@@ -31,16 +31,16 @@
           .append("path")
           .attr("fill", "#ccc")
           .attr("d", geoPath);
-        d3.csv("data/dataCS.csv", function (error, data) {
+        d3.csv("https://docs.google.com/spreadsheets/d/1ZKBvaJ2Vru1v37ufPXI-XE_bD1iSMPsXLcRWd7t3Vow/pub?gid=1870254444&single=true&output=csv", function (error, data) {
             g.selectAll("circle")
                .data(data)
                .enter()
                .append("circle")
                .attr("cx", function (d) {
-                   return projection([d.OLon, d.OLat])[0];
+                   return albersProjection([d.OLon, d.OLat])[0];
                })
                .attr("cy", function (d) {
-                   return projection([d.OLon, d.Lat])[1];
+                   return albersProjection([d.OLon, d.OLat])[1];
                })
                .attr("r", 5)
                .style("fill", "red");

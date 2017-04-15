@@ -1,7 +1,7 @@
 ﻿<html>
 <head>
-    <title>Crowd Sourced Commutes</title>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <title>A D3 map</title>
+    <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
     <script src="js/neighborhoodsMSP.js"></script>
 </head>
 <body>
@@ -16,13 +16,13 @@
 
         var g = svg.append("g");
 
-        var albersProjection = d3.geo.albers()
+        var albersProjection = d3.geoAlbers()
           .scale(190000)
           .rotate([93.2650, 0])
           .center([0, 44.9778])
           .translate([width / 2, height / 2]);
 
-        var geoPath = d3.geo.path()
+        var geoPath = d3.geoPath()
             .projection(albersProjection);
 
         g.selectAll("path")

@@ -32,6 +32,11 @@
           .attr("fill", "#ccc")
           .attr("d", geoPath);
         d3.csv("https://docs.google.com/spreadsheets/d/1ZKBvaJ2Vru1v37ufPXI-XE_bD1iSMPsXLcRWd7t3Vow/pub?gid=1870254444&single=true&output=csv", function (error, data) {
+            //Start Filter
+            data = data.filter(function (row) {
+                return row['TimeAgo'] >= 0;
+            });
+                //end filter
             g.selectAll("circle")
                .data(data)
                .enter()

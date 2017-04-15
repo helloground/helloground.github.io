@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>LAPTOP-P4S7QGO0</Machine>
+    <WindowsUser>Matth</WindowsUser>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetOsVersion>10.0</TargetOsVersion>
+    <TargetOsDescription>Windows 10.0</TargetOsDescription>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>9fd85364-c3d2-4fb2-82d7-e2ca6ad157ed</PackageIdentityName>
+    <PackageIdentityPublisher>CN=Matth</PackageIdentityPublisher>
+    <IntermediateOutputPath>C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\bld\Debug\</IntermediateOutputPath>
+    <RemoteDeploymentType>
+    </RemoteDeploymentType>
+    <PackageRegistrationPath>
+    </PackageRegistrationPath>
+    <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
+    <RegisteredManifestChecksum>4F230909AB346B559687293DC60BC2B0B03275D84133FB313F5DE22F5763BCEA</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>9fd85364-c3d2-4fb2-82d7-e2ca6ad157ed_1.0.0.0_neutral__1yyybn821c56w</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>9fd85364-c3d2-4fb2-82d7-e2ca6ad157ed_1yyybn821c56w!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>9fd85364-c3d2-4fb2-82d7-e2ca6ad157ed</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=Matth</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-15T16:41:03.703</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\index.html">
+      <PackagePath>index.html</PackagePath>
+      <Modified>2017-04-15T16:40:59.735</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\images\LockScreenLogo.scale-200.png">
+      <PackagePath>images\LockScreenLogo.scale-200.png</PackagePath>
+      <Modified>2015-09-20T22:30:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\images\SplashScreen.scale-200.png">
+      <PackagePath>images\SplashScreen.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-09-20T22:30:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\images\Square150x150Logo.scale-200.png">
+      <PackagePath>images\Square150x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-09-20T22:30:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\images\Square44x44Logo.scale-200.png">
+      <PackagePath>images\Square44x44Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-09-20T22:30:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\images\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <PackagePath>images\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-09-20T22:30:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\images\StoreLogo.png">
+      <PackagePath>images\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-09-20T22:30:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\images\Wide310x150Logo.scale-200.png">
+      <PackagePath>images\Wide310x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-09-20T22:30:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\js\main.js">
+      <PackagePath>js\main.js</PackagePath>
+      <Modified>2017-04-15T15:53:48.261</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\js\neighborhoods.js">
+      <PackagePath>js\neighborhoods.js</PackagePath>
+      <Modified>2017-04-15T16:34:19.492</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\css\default.css">
+      <PackagePath>css\default.css</PackagePath>
+      <Modified>2017-04-15T15:53:48.247</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\bin\Debug\ReverseMap\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-15T16:41:03.455</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

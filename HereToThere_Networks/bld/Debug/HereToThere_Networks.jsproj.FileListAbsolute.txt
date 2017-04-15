@@ -1,0 +1,16 @@
+C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\bin\Debug\ReverseMap\resources.pri
+C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\bin\Debug\AppxManifest.xml
+C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\bin\Debug\HereToThere_Networks.build.appxrecipe
+C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\bld\Debug\ResourceHandlingTask.state
+C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\bld\Debug\priconfig.xml
+C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\bld\Debug\priconfig.xml.intermediate
+C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\bld\Debug\layout.resfiles
+C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\bld\Debug\layout.resfiles.intermediate
+C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\bld\Debug\resources.resfiles
+C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\bld\Debug\resources.resfiles.intermediate
+C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\bld\Debug\pri.resfiles
+C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\bld\Debug\pri.resfiles.intermediate
+C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\bld\Debug\qualifiers.txt
+C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\bld\Debug\qualifiers.txt.intermediate
+C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\bld\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\bld\Debug\ProjectArchitectures.txt

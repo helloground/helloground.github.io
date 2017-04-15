@@ -58,6 +58,9 @@
     <AppxPackagedFile Include="C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\js\neighborhoods.js">
       <PackagePath>js\neighborhoods.js</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\js\neighborhoodsMSP.js">
+      <PackagePath>js\neighborhoodsMSP.js</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Matth\Source\Repos\helloground.github.io\HereToThere_Networks\css\default.css">
       <PackagePath>css\default.css</PackagePath>
     </AppxPackagedFile>

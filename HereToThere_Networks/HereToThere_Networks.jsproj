@@ -70,6 +70,7 @@
     <Content Include="js\main.js" />
     <Content Include="css\default.css" />
     <Content Include="js\neighborhoods.js" />
+    <Content Include="js\neighborhoodsCount.js" />
     <Content Include="js\neighborhoodsMSP.js" />
     <None Include="HereToThere_Networks_TemporaryKey.pfx" />
   </ItemGroup>

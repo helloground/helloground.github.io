@@ -3,6 +3,39 @@
     <title>A D3 map</title>
     <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
     <script src="js/neighborhoodsMSP.js"></script>
+    <style type="text/css">
+    circle {
+        fill: blue;
+        fill-opacity: .8;
+        stroke: #fff;
+        }
+    #states path {
+    fill: #ccc;
+    stroke: #fff;
+    }
+   
+
+    .arcs{
+	  stroke: blue
+      ;
+	
+	}
+
+    circle:hover .circle {
+	  fill: red;
+      
+	  
+	}
+
+    /*.arcs:hover{
+	  stroke-width: 3px;
+	  stroke: tomato;
+	
+	}*/
+
+    </style>
+
+    
 </head>
 <body>
     <script>
@@ -23,20 +56,42 @@
           .translate([width / 2, height / 2]);
 
         var geoPath = d3.geoPath()
-            .projection(albersProjection);
+            .projection(albersProjection)
+            .pointRadius(2.5);
+       
 
         g.selectAll("path")
           .data(neighborhoods_json.features)
           .enter()
           .append("path")
           .attr("fill", "#ccc")
+          .attr("stroke","#fff")
           .attr("d", geoPath);
         d3.csv("https://docs.google.com/spreadsheets/d/1ZKBvaJ2Vru1v37ufPXI-XE_bD1iSMPsXLcRWd7t3Vow/pub?gid=1870254444&single=true&output=csv", function (error, data) {
             //Start Filter
             data = data.filter(function (row) {
                 return row['TimeAgo'] >= 0;
             });
-                //end filter
+
+            //end filter
+
+            for (var i in data) {
+                data[i].arcs = { type: "LineString", coordinates: [] };
+            };
+
+            data.forEach(function (d) {
+                var source = [d.OLon, d.OLat]
+                var target = [d.NewLon, d.NewLat]
+                d.arcs.coordinates.push(source)
+                d.arcs.coordinates.push(target)
+                //console.log(d.arcs.coordinates)
+            });
+            //Debug
+            //console.log(data.length);
+            //data[0].test="12"
+            //console.log(data[0].test);
+            console.log(data);
+
             g.selectAll("circle")
                .data(data)
                .enter()
@@ -48,8 +103,22 @@
                    return albersProjection([d.OLon, d.OLat])[1];
                })
                .attr("r", 5)
-               .style("fill", "red");
+
+
+
+            var arcs = svg.append("g")
+                .attr("class", "arcs");
+            arcs.selectAll("path")
+                .data(data)
+                .enter()
+                .append("path")
+                .attr("d", function (d) { return geoPath(d.arcs) })
+
+            
+
         });
+
+
                 
         </script>
 </body>

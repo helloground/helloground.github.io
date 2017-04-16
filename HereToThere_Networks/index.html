@@ -15,14 +15,28 @@
     }
    
 
-    .arcs{
-	  stroke: blue
-      ;
+ .arcs{
+	  
+      //pointer-events:visibleStroke;
+      stroke: red;
+      stroke-width:10;
+      stroke-opacity:0;
 	
 	}
 
-    circle:hover .circle {
-	  fill: red;
+ .arcs:hover{
+	  
+      //pointer-events:visibleStroke;
+      stroke: red;
+      stroke-width:5;
+      stroke-opacity:100;
+	
+	}
+
+
+
+  circle:hover.arcs {
+	  stroke: blue;
       
 	  
 	}
@@ -103,20 +117,30 @@
                    return albersProjection([d.OLon, d.OLat])[1];
                })
                .attr("r", 5)
+                //test
+                .exit()
 
 
+            g.selectAll("arcs")
+                .data(data)
+                .enter()
+                .append("path")
+                .attr("class","arcs")
+                .attr("d", function (d) { return geoPath(d.arcs) })
+            console.log(g);
+        });
 
-            var arcs = svg.append("g")
+            /*var arcs = svg.append("g")
                 .attr("class", "arcs");
             arcs.selectAll("path")
                 .data(data)
                 .enter()
                 .append("path")
-                .attr("d", function (d) { return geoPath(d.arcs) })
+                .attr("d", function (d) { return geoPath(d.arcs) */
 
             
 
-        });
+       
 
 
                 

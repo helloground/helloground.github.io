@@ -3,6 +3,8 @@
     <title>A D3 map</title>
     <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
     <script src="js/neighborhoodsMSP.js"></script>
+    <script src="js/nhoodsLocs.js"></script>
+    
     <style type="text/css">
     circle {
         fill: blue;
@@ -73,6 +75,10 @@
             .projection(albersProjection)
             .pointRadius(2.5);
        
+        //start refactoring
+
+
+
 
         g.selectAll("path")
           .data(neighborhoods_json.features)
@@ -104,7 +110,7 @@
             //console.log(data.length);
             //data[0].test="12"
             //console.log(data[0].test);
-            console.log(data);
+            //console.log(data);
 
             g.selectAll("circle")
                .data(data)
@@ -120,6 +126,20 @@
                 //test
                 .exit()
 
+            //meighborhoods = data.filter
+            //var neighborhoods = svg.selectAll(".neighborhood")
+            //.data(data)
+            console.log("Hi");
+            console.log(data);
+
+
+
+            //append routes to city data
+            d3.json("nhoodLocs", function (error, nhoods) {
+                console.log(nhoods)
+            });
+
+       
 
             g.selectAll("arcs")
                 .data(data)

@@ -30,7 +30,7 @@
   .narcs{
 	  
      
-      stroke: blue;
+      stroke: darkseagreen;
       //stroke-width:1;
       stroke-opacity:.5;
 	
@@ -272,7 +272,7 @@
               .attr("cy", function (d) {
                   return albersProjection([d.Lon, d.Lat])[1];
               })
-              .attr("r", 5)
+              .attr("r", function (d) { return (d.arcs.coordinates.length + 1) })
 
 
         });

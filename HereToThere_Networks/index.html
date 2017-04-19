@@ -3,37 +3,40 @@
     <title>A D3 map</title>
     <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
     <script src="js/neighborhoodsMSP.js"></script>
+    <script src="js/nhoodsLocs.js"></script>
+    <script src="js/counties.js"></script>
+    
+    
     <style type="text/css">
     circle {
         fill: blue;
         fill-opacity: .8;
         stroke: #fff;
         }
-    #states path {
-    fill: #ccc;
-    stroke: #fff;
-    }
+    
    
+
+
 
  .arcs{
 	  
-      //pointer-events:visibleStroke;
+     
       stroke: red;
-      stroke-width:10;
-      stroke-opacity:0;
-	
-	}
-
- .arcs:hover{
-	  
-      //pointer-events:visibleStroke;
-      stroke: red;
-      stroke-width:5;
+      stroke-width:3;
       stroke-opacity:100;
 	
 	}
 
+  .narcs{
+	  
+     
+      stroke: blue;
+      //stroke-width:1;
+      stroke-opacity:100;
+	
+	}
 
+  
 
   circle:hover.arcs {
 	  stroke: blue;
@@ -53,18 +56,23 @@
 </head>
 <body>
     <script>
-        var width = 700,
-    height = 580;
+        var width = 900,
+    height = 780;
+        
+        
 
         var svg = d3.select("body")
           .append("svg")
           .attr("width", width)
-          .attr("height", height);
+          .attr("height", height)
+          .call(d3.zoom().on("zoom", function () {
+              svg.attr("transform", d3.event.transform)
+          }));
 
         var g = svg.append("g");
 
         var albersProjection = d3.geoAlbers()
-          .scale(190000)
+          .scale(100000)
           .rotate([93.2650, 0])
           .center([0, 44.9778])
           .translate([width / 2, height / 2]);
@@ -72,21 +80,53 @@
         var geoPath = d3.geoPath()
             .projection(albersProjection)
             .pointRadius(2.5);
-       
 
-        g.selectAll("path")
+
+        
+       
+        //start refactoring
+
+
+
+
+      g.selectAll("path")
           .data(neighborhoods_json.features)
           .enter()
           .append("path")
           .attr("fill", "#ccc")
           .attr("stroke","#fff")
-          .attr("d", geoPath);
+          .attr("d", geoPath)
+      console.log(neighborhoods_json.features);
+
+
+      for (var i in nhoodLocations) {
+         nhoodLocations[i].arcs = { type: "MultiLineString", coordinates: [] };
+      };
+      console.log("MutliLine");
+      //console.log(nhoodLocations.Nhood["Armitage"])
+        
+
+        /*g.selectAll("path")
+           .data(counties_json.features)
+           .enter()
+           .append("path")
+           .attr("fill", "#ccc")
+           .attr("stroke","#fff")
+           .attr("d", geoPath)
+        console.log(counties_json.features);*/
+
         d3.csv("https://docs.google.com/spreadsheets/d/1ZKBvaJ2Vru1v37ufPXI-XE_bD1iSMPsXLcRWd7t3Vow/pub?gid=1870254444&single=true&output=csv", function (error, data) {
             //Start Filter
             data = data.filter(function (row) {
                 return row['TimeAgo'] >= 0;
             });
 
+         
+
+           
+
+
+       
             //end filter
 
             for (var i in data) {
@@ -95,16 +135,31 @@
 
             data.forEach(function (d) {
                 var source = [d.OLon, d.OLat]
-                var target = [d.NewLon, d.NewLat]
+                var target = [d.DLon, d.DLat]
+                var start_nhood = d["Where do you usually begin your commute?"]
                 d.arcs.coordinates.push(source)
                 d.arcs.coordinates.push(target)
-                //console.log(d.arcs.coordinates)
+                for (var i = 0; i < nhoodLocations.length; i++) {
+                    if (nhoodLocations[i].Nhood == start_nhood) {
+                        nhoodLocations[i].arcs.coordinates.push([source, target])
+
+                    }
+                };
+                //console.log(start_nhood)
+                //add to Multline for nhoodLocations
+                console.log(nhoodLocations)
+                
+               
             });
+
+            console.log("csv object");
+            console.log(data[0]["Where do you usually begin your commute?"]);
+            console.log(nhoodLocations);
             //Debug
             //console.log(data.length);
             //data[0].test="12"
             //console.log(data[0].test);
-            console.log(data);
+            //console.log(data);
 
             g.selectAll("circle")
                .data(data)
@@ -120,15 +175,62 @@
                 //test
                 .exit()
 
+            //meighborhoods = data.filter
+            //var neighborhoods = svg.selectAll(".neighborhood")
+            //.data(data)
+            console.log("Hi");
+            console.log(data);
 
-            g.selectAll("arcs")
+
+
+            //append routes to city data
+            //d3.json("nhoodLocs", function (error, nhoods) {
+          
+            //});
+            var nhoods = svg.selectAll(".nhoods")
+                .data(nhoodLocations)
+                .enter().append("g")
+                    .attr("class", "nhood");
+                
+            nhoods.append("circle")
+                .data(nhoodLocations)
+               .attr("cx", function (d) {
+                   return albersProjection([d.Lon, d.Lat])[0];
+               })
+               .attr("cy", function (d) {
+                   return albersProjection([d.Lon, d.Lat])[1];
+               })
+               .attr("r", 5);
+
+            nhoods.append("path")
+                .data(data)
+                .enter()
+                .attr("class", "route-arcs")
+                .attr("d", function (d) { geoPath(d.arcs) });
+            
+            //console.log(nhoods);
+       
+
+           g.selectAll("arcs")
                 .data(data)
                 .enter()
                 .append("path")
                 .attr("class","arcs")
                 .attr("d", function (d) { return geoPath(d.arcs) })
-            console.log(g);
+           console.log(g);
+
+           g.selectAll("arcs")
+               .data(nhoodLocations)
+               .enter()
+               .append("path")
+               .attr("class", "narcs")
+               .attr("d", function (d) { return geoPath(d.arcs) })
+               .attr("stroke-width", function (d) { return (d.arcs.coordinates.length/2)})
+           console.log(g);
         });
+
+        //Multline?
+
 
             /*var arcs = svg.append("g")
                 .attr("class", "arcs");

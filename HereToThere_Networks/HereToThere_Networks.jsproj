@@ -72,6 +72,11 @@
     <Content Include="js\neighborhoods.js" />
     <Content Include="js\neighborhoodsCount.js" />
     <Content Include="js\neighborhoodsMSP.js" />
+    <Content Include="js\nhoodLocs.csv">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="js\nhoodsLocs.js" />
+    <Content Include="js\counties.js" />
     <None Include="HereToThere_Networks_TemporaryKey.pfx" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).targets" />

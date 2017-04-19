@@ -1,4 +1,4 @@
-﻿var nhoodsLocs = [
+﻿var nhoodLocations = [
  {
      "Nhood": "Armatage",
      "Lat": 44.89800605,

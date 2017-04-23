@@ -1,6 +1,6 @@
 ﻿<html>
 <head>
-    <title>A D3 map</title>
+    <title>Here To There: Commuting Maps</title>
     <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
     <script src="js/neighborhoodsMSP.js"></script>
     <script src="js/nhoodsLocs.js"></script>
@@ -9,7 +9,7 @@
     
     <style type="text/css">
     circle {
-        fill: blue;
+        fill: purple;
         fill-opacity: .8;
         stroke: #fff;
         }
@@ -18,21 +18,21 @@
 
 
 
- .arcs{
+ /*.arcs{
 	  
      
       stroke: red;
       stroke-width:3;
       stroke-opacity:100;
 	
-	}
+	}*/
 
   .narcs{
 	  
      
-      stroke: blue;
+      stroke: darkseagreen;
       //stroke-width:1;
-      stroke-opacity:100;
+      stroke-opacity:.5;
 	
 	}
 
@@ -40,6 +40,7 @@
 
   circle:hover.arcs {
 	  stroke: blue;
+      stroke-opacity:50;
       
 	  
 	}
@@ -56,8 +57,8 @@
 </head>
 <body>
     <script>
-        var width = 900,
-    height = 780;
+        var width =2000,
+    height =1760;
         
         
 
@@ -72,10 +73,10 @@
         var g = svg.append("g");
 
         var albersProjection = d3.geoAlbers()
-          .scale(100000)
+          .scale(90000)
           .rotate([93.2650, 0])
           .center([0, 44.9778])
-          .translate([width / 2, height / 2]);
+          .translate([width / 4, height / 6]);
 
         var geoPath = d3.geoPath()
             .projection(albersProjection)
@@ -86,17 +87,40 @@
        
         //start refactoring
 
+        //add county data
+      /* g.selectAll("path")
+          .data(counties_json.features)
+          .enter()
+          .append("path")
+           .attr("class", "county")
+          .attr("fill", "#ccc")
+          .attr("stroke", "blue")
+          .attr("fill-opacity",0.1)
+          .attr("d", geoPath)*/
+          
+        //console.log(neighborhoods_json.features);
 
+     
 
-
-      g.selectAll("path")
+    g.selectAll("path")
           .data(neighborhoods_json.features)
           .enter()
           .append("path")
+          .attr("class","nhood")
           .attr("fill", "#ccc")
           .attr("stroke","#fff")
           .attr("d", geoPath)
       console.log(neighborhoods_json.features);
+
+      g.selectAll("counties")
+        .data(counties_json.features)
+        .enter()
+        .append("path")
+        .attr("class", "county")
+        .attr("fill", "#ccc")
+        .attr("stroke", "grey")
+        .attr("fill-opacity", 0.1)
+        .attr("d", geoPath);
 
 
       for (var i in nhoodLocations) {
@@ -115,17 +139,22 @@
            .attr("d", geoPath)
         console.log(counties_json.features);*/
 
-        d3.csv("https://docs.google.com/spreadsheets/d/1ZKBvaJ2Vru1v37ufPXI-XE_bD1iSMPsXLcRWd7t3Vow/pub?gid=1870254444&single=true&output=csv", function (error, data) {
+        //This will make the data collection be live
+       /* d3.csv("https://docs.google.com/spreadsheets/d/1ZKBvaJ2Vru1v37ufPXI-XE_bD1iSMPsXLcRWd7t3Vow/pub?gid=1870254444&single=true&output=csv", function (error, data) {
             //Start Filter
             data = data.filter(function (row) {
                 return row['TimeAgo'] >= 0;
-            });
+            });*/
 
-         
+            d3.csv("data/dataCS.csv", function (error, data) {
+                //Start Filter
+                data = data.filter(function (row) {
+                    return row['TimeAgo'] >= 0;
+                });
+
 
            
-
-
+       
        
             //end filter
 
@@ -160,7 +189,7 @@
             //data[0].test="12"
             //console.log(data[0].test);
             //console.log(data);
-
+/*
             g.selectAll("circle")
                .data(data)
                .enter()
@@ -173,7 +202,7 @@
                })
                .attr("r", 5)
                 //test
-                .exit()
+                .exit()*/
 
             //meighborhoods = data.filter
             //var neighborhoods = svg.selectAll(".neighborhood")
@@ -191,9 +220,11 @@
                 .data(nhoodLocations)
                 .enter().append("g")
                     .attr("class", "nhood");
-                
-            nhoods.append("circle")
+
+            //this does someting I no longer need    
+           /* nhoods.append("circle")
                 .data(nhoodLocations)
+
                .attr("cx", function (d) {
                    return albersProjection([d.Lon, d.Lat])[0];
                })
@@ -206,10 +237,17 @@
                 .data(data)
                 .enter()
                 .attr("class", "route-arcs")
-                .attr("d", function (d) { geoPath(d.arcs) });
+                .attr("d", function (d) { geoPath(d.arcs) });*/
             
             //console.log(nhoods);
-       
+            //filter neighborhoods with no commuters
+
+            nhoodLocations = nhoodLocations.filter(function (d) {
+                return (d.arcs.coordinates.length > 0);
+            });
+            //filtered nhoods
+            console.log("Filtered");
+            console.log(nhoodLocations);
 
            g.selectAll("arcs")
                 .data(data)
@@ -219,6 +257,7 @@
                 .attr("d", function (d) { return geoPath(d.arcs) })
            console.log(g);
 
+
            g.selectAll("arcs")
                .data(nhoodLocations)
                .enter()
@@ -227,6 +266,20 @@
                .attr("d", function (d) { return geoPath(d.arcs) })
                .attr("stroke-width", function (d) { return (d.arcs.coordinates.length/2)})
            console.log(g);
+
+           g.selectAll("circle")
+              .data(nhoodLocations)
+              .enter()
+              .append("circle")
+              .attr("cx", function (d) {
+                  return albersProjection([d.Lon, d.Lat])[0];
+              })
+              .attr("cy", function (d) {
+                  return albersProjection([d.Lon, d.Lat])[1];
+              })
+              .attr("r", function (d) { return (d.arcs.coordinates.length + 1) })
+
+
         });
 
         //Multline?

@@ -146,7 +146,7 @@
                 return row['TimeAgo'] >= 0;
             });*/
 
-            d3.csv("dataCS.csv", function (error, data) {
+            d3.csv("data/dataCS.csv", function (error, data) {
                 //Start Filter
                 data = data.filter(function (row) {
                     return row['TimeAgo'] >= 0;

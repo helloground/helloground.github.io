@@ -149,7 +149,10 @@
             d3.csv("js/data/dataCS.csv", function (error, data) {
                 //Start Filter
                 data = data.filter(function (row) {
+                    console.log("data")
+                    console.log(data)
                     return row['TimeAgo'] >= 0;
+
                 }); 
 
 

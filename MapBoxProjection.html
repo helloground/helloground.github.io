@@ -1,0 +1,98 @@
+    <title>TopographyOfWealth_Charlotte</title>
+    <link href="css/default.css" rel="stylesheet" />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.31.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.31.0/mapbox-gl.css' rel='stylesheet' />
+
+
+
+<body>
+    
+    <div id='map' style='width: 800px; height: 600px;'></div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiaGVsbG9ncm91bmQiLCJhIjoiY2l1MDZiZ2k3MDFhODJvczV5eGZrZG56MiJ9.mp_OW8Y2roxCxDikWL2JUQ';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/dark-v9',
+    center: [-80.843, 35.225], // starting position
+    zoom: 14 // starting zoom
+});
+
+map.on('load', function () {
+    map.addSource('routes', {
+        type: 'vector',
+        url: 'mapbox://helloground.bnnrd1ha' //Your Mapbox tileset Map ID
+    });
+
+    //Add the extrusion layer to the map
+   map.addLayer({
+        "id": "routes4",
+        "type": "line",
+        "source": {
+            type: 'vector',
+            url: 'mapbox://helloground.bnnrd1ha'
+        },
+        "source-layer": "BusLines-bd0e45",
+        "layout": {
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "paint": {
+            "line-color": "#d442f4",
+            "line-width": 2
+        }
+    });
+    
+     //Add the extrusion layer to the map
+   map.addLayer({
+        "id": "barrier10",
+        "type": "line",
+        "source": {
+            type: 'vector',
+            url: 'mapbox://helloground.3gaj8zou'
+        },
+        "source-layer": "Barrier-1t8gil",
+        "layout": {
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "paint": {
+            "line-color": "light green",
+            "line-width": 5
+        }
+    });
+    
+    
+    map.addSource('businesses', {
+        type: 'vector',
+        url: 'mapbox://helloground.bg9jsscl' //Your Mapbox tileset Map ID
+    });
+    
+	map.addLayer({
+        'id': 'businesses12',
+         "source": {
+            type: 'vector',
+            url: 'mapbox://helloground.bg9jsscl'
+        },
+        'source-layer': 'CharlottePriceTopo-a9msw1', //name of the layer in the tileset
+        'type': 'fill-extrusion',
+        "paint": {
+            "fill-extrusion-height": {
+                "type": "identity",
+                "property": "Avg_Contou"
+            },
+            //"fill-extrusion-color": "red",
+            'fill-extrusion-color': {
+            //add base extrude?
+    property: 'Avg_Contou',
+    stops: [[0, '#2B60DE'], [540, '#f00']]
+},
+            "fill-extrusion-opacity":0.5
+
+            
+        }
+    });
+     
+    
+});
+      	</script>
+</body>

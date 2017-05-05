@@ -1,12 +1,61 @@
+<style>.enjoy-css {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal 24px/2 Tahoma, Geneva, sans-serif;
+  color: rgba(244,239,239,1);
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: rgba(0,0,0,1);
+}
+
+.enjoy-css2 {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal 15px/2 Tahoma, Geneva, sans-serif;
+  color: rgba(244,239,239,1);
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: rgba(0,0,0,1);
+}
+
+
+
+.instructions {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal 12px/2 Lucida Sans Unicode, Lucida Grande, sans-serif;
+  color: rgba(244,239,239,1);
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: rgba(0,0,0,1);
+}</style>
+
     <title>TopographyOfWealth_Charlotte</title>
-    <link href="css/default.css" rel="stylesheet" />
+     <link href="css/default.css" rel="stylesheet" />
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.31.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.31.0/mapbox-gl.css' rel='stylesheet' />
+
+<div class="enjoy-css"><b>Topographies of Wealth: Charlotte, NC</b>
+</div>
+<div class="enjoy-css2"><i>Economic accessiblity landscape created using Yelp price range data from downtown businesses. These topographies provide a new dimension to cities, going beyond the built environment to show how economic, political, and societal forces have shaped how people experience the cities they live in. </i>   
+<p>
+<div class="instructions">
+Zoom: Scroll or Double Click<br/>
+Tilt: Left-Click or Ctrl-Click<br/>
+Pan: Click and Drag
+
+</div>
 
 
 
 <body>
-    
+ 
     <div id='map' style='width: 800px; height: 600px;'></div>
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoiaGVsbG9ncm91bmQiLCJhIjoiY2l1MDZiZ2k3MDFhODJvczV5eGZrZG56MiJ9.mp_OW8Y2roxCxDikWL2JUQ';
@@ -16,22 +65,20 @@ var map = new mapboxgl.Map({
     center: [-80.843, 35.225], // starting position
     zoom: 14 // starting zoom
 });
-
 map.on('load', function () {
     map.addSource('routes', {
         type: 'vector',
-        url: 'mapbox://helloground.bnnrd1ha' //Your Mapbox tileset Map ID
+        url: 'mapbox://helloground.btdjirpj' //Your Mapbox tileset Map ID
     });
-
     //Add the extrusion layer to the map
-   map.addLayer({
+  /* map.addLayer({
         "id": "routes4",
         "type": "line",
         "source": {
             type: 'vector',
-            url: 'mapbox://helloground.bnnrd1ha'
+            url: 'mapbox://helloground.btdjirpj'
         },
-        "source-layer": "BusLines-bd0e45",
+        "source-layer": "Routes-0yehhr",
         "layout": {
             "line-join": "round",
             "line-cap": "round"
@@ -40,7 +87,7 @@ map.on('load', function () {
             "line-color": "#d442f4",
             "line-width": 2
         }
-    });
+    });*/
     
      //Add the extrusion layer to the map
    map.addLayer({
@@ -87,7 +134,6 @@ map.on('load', function () {
     stops: [[0, '#2B60DE'], [540, '#f00']]
 },
             "fill-extrusion-opacity":0.5
-
             
         }
     });

@@ -40,6 +40,7 @@
     <title>TopographyOfWealth_Charlotte</title>
      <link href="css/default.css" rel="stylesheet" />
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.31.0/mapbox-gl.js'></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-supported/v1.2.0/mapbox-gl-supported.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.31.0/mapbox-gl.css' rel='stylesheet' />
 
 <div class="enjoy-css"><b>Topographies of Wealth: Charlotte, NC</b>
@@ -61,6 +62,10 @@ Pan: Click and Drag<br/>
     <div id='map' style='width: 1000px; height: 800px;'></div>
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoiaGVsbG9ncm91bmQiLCJhIjoiY2l1MDZiZ2k3MDFhODJvczV5eGZrZG56MiJ9.mp_OW8Y2roxCxDikWL2JUQ';
+	    
+if (!mapboxgl.supported()) {
+    alert('Your browser does not support Mapbox GL');
+} else {	    
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v9',
@@ -142,5 +147,6 @@ map.on('load', function () {
      
     
 });
+}
       	</script>
 </body>

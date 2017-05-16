@@ -194,12 +194,14 @@ div.tooltip {
                 //tabletop test
 
                 window.onload = function () { init() };
-                var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/1ZKBvaJ2Vru1v37ufPXI-XE_bD1iSMPsXLcRWd7t3Vow/pub?gid=1870254444&single=true&output=csv";
+                var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/1ZKBvaJ2Vru1v37ufPXI-XE_bD1iSMPsXLcRWd7t3Vow/pub?gid=1870254444&single=true&output=html";
                 function init() {
+                    console.log("Hi")
                     Tabletop.init({
                         key: public_spreadsheet_url,
                         callback: showInfo,
                         simpleSheet: true
+                        
                     })
                 }
                 function showInfo(rows) {

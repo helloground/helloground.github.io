@@ -314,11 +314,11 @@ div.tooltip {
                   return albersProjection([d.Lon, d.Lat])[1];
               })
               .attr("r", function (d) { return (d.arcs.coordinates.length + 1) })
-             /* .on("mouseover", function(d) {		
+              .on("mouseover", function(d) {		
                div.transition()		
                    .duration(200)		
                    .style("opacity", .9);		
-               div	.html("test" + "<br/>"  + "test")	
+               div	.html(d.Nhood)	
                    .style("left", (d3.event.pageX) + "px")		
                    .style("top", (d3.event.pageY - 28) + "px");
 
@@ -327,7 +327,7 @@ div.tooltip {
                 div.transition()		
                 .duration(500)		
                 .style("opacity", 0);	
-                 });*/
+                 });
 
 
 

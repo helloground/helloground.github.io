@@ -143,7 +143,7 @@ div.tooltip {
               .style("opacity", 0);
          });
 
-      console.log(neighborhoods_json.features);
+      //console.log(neighborhoods_json.features);
 
       g.selectAll("counties")
         .data(counties_json.features)
@@ -160,7 +160,7 @@ div.tooltip {
       for (var i in nhoodLocations) {
          nhoodLocations[i].arcs = { type: "MultiLineString", coordinates: [] };
       };
-      console.log("MutliLine");
+      //console.log("MutliLine");
       //console.log(nhoodLocations.Nhood["Armitage"])
         
 
@@ -183,8 +183,8 @@ div.tooltip {
             d3.csv("js/data/dataCS.csv", function (error, data) {
                 //Start Filter
                 data = data.filter(function (row) {
-                    console.log("data")
-                    console.log(data)
+                    //console.log("data")
+                    //console.log(data)
                     return row['TimeAgo'] >= 0;
 
                 }); 
@@ -208,20 +208,20 @@ div.tooltip {
                 for (var i = 0; i < nhoodLocations.length; i++) {
                     if (nhoodLocations[i].Nhood == start_nhood) {
                         nhoodLocations[i].arcs.coordinates.push([source, target])
-                        console.log("target" + target)
-                        console.log(d.DLon)
+                        //console.log("target" + target)
+                        //console.log(d.DLon)
                     }
                 };
                 //console.log(start_nhood)
                 //add to Multline for nhoodLocations
-                console.log(nhoodLocations)
+                //console.log(nhoodLocations)
                 
                
             });
 
-            console.log("csv object");
-            console.log(data[0]["Where do you usually begin your commute?"]);
-            console.log(nhoodLocations);
+            //console.log("csv object");
+            //console.log(data[0]["Where do you usually begin your commute?"]);
+            //console.log(nhoodLocations);
             //Debug
             //console.log(data.length);
             //data[0].test="12"
@@ -245,9 +245,7 @@ div.tooltip {
             //meighborhoods = data.filter
             //var neighborhoods = svg.selectAll(".neighborhood")
             //.data(data)
-            console.log("Hi");
-            console.log(data);
-
+            
 
 
             //append routes to city data
@@ -303,7 +301,7 @@ div.tooltip {
                .attr("class", "narcs")
                .attr("d", function (d) { return geoPath(d.arcs) })
                .attr("stroke-width", function (d) { return (d.arcs.coordinates.length/2)})
-           console.log(g);
+           //console.log(g);
 
            g.selectAll("circle")
               .data(nhoodLocations)

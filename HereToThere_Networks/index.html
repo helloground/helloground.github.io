@@ -5,6 +5,7 @@
     <script src="js/neighborhoodsMSP.js"></script>
     <script src="js/nhoodsLocs.js"></script>
     <script src="js/counties.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
     
     
     <style type="text/css">
@@ -174,21 +175,37 @@ div.tooltip {
         console.log(counties_json.features);*/
 
         //This will make the data collection be live
-        d3.csv("https://docs.google.com/spreadsheets/d/1ZKBvaJ2Vru1v37ufPXI-XE_bD1iSMPsXLcRWd7t3Vow/pub?gid=1870254444&single=true&output=csv", function (error, data) {
+        /*d3.csv("https://docs.google.com/spreadsheets/d/1ZKBvaJ2Vru1v37ufPXI-XE_bD1iSMPsXLcRWd7t3Vow/pub?gid=1870254444&single=true&output=csv", function (error, data) {
             //Start Filter
             data = data.filter(function (row) {
                 return row['TimeAgo'] >= 0;
-            });
+            });*/
         
         //This will make the data collection be non-live
-            /*d3.csv("js/data/dataCS.csv", function (error, data) {
+            d3.csv("js/data/dataCS.csv", function (error, data) {
                 //Start Filter
                 data = data.filter(function (row) {
                     //console.log("data")
                     //console.log(data)
                     return row['TimeAgo'] >= 0;
 
-                }); */
+                });
+
+                //tabletop test
+
+                window.onload = function () { init() };
+                var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/1ZKBvaJ2Vru1v37ufPXI-XE_bD1iSMPsXLcRWd7t3Vow/pub?gid=1870254444&single=true&output=csv";
+                function init() {
+                    Tabletop.init({
+                        key: public_spreadsheet_url,
+                        callback: showInfo,
+                        simpleSheet: true
+                    })
+                }
+                function showInfo(rows) {
+                    console.log("rows"+rows);
+                    // build your d3 vis here..
+                }
 
 
            

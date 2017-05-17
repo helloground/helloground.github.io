@@ -85,9 +85,9 @@ div.tooltip {
           .append("svg")
           .attr("width", width)
           .attr("height", height)
-          .call(d3.zoom().on("zoom", function () {
+          /*.call(d3.zoom().on("zoom", function () {
               svg.attr("transform", d3.event.transform)
-          }));
+        }));*/
 
         var g = svg.append("g");
 
@@ -197,24 +197,7 @@ div.tooltip {
 
 
 
-          //tabletop test
-
-          /* window.onload = function () { init() };
-
-           var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/1ZKBvaJ2Vru1v37ufPXI-XE_bD1iSMPsXLcRWd7t3Vow/pubhtml?gid=1870254444&single=true";
-           function init() {
-               console.log("Hi")
-               Tabletop.init({
-                   key: public_spreadsheet_url,
-                   callback: showInfo,
-                   simpleSheet: true
-                   
-               })
-           }
-           function showInfo(data) {
-               console.log("rows" + data);
-
-               // build your d3 vis here..*/
+         
 
                 
 

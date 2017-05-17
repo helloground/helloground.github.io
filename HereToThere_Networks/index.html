@@ -179,7 +179,7 @@ div.tooltip {
         console.log(counties_json.features);*/
 
         //This will make the data collection be live
-      d3.csv("http://crossorigin.me/https://docs.google.com/spreadsheets/d/1ZKBvaJ2Vru1v37ufPXI-XE_bD1iSMPsXLcRWd7t3Vow/pub?gid=1870254444&single=true&output=csv", function (error, data) {
+      d3.csv("https://crossorigin.me/https://docs.google.com/spreadsheets/d/1ZKBvaJ2Vru1v37ufPXI-XE_bD1iSMPsXLcRWd7t3Vow/pub?gid=1870254444&single=true&output=csv", function (error, data) {
             //Start Filter
             data = data.filter(function (row) {
                 return row['TimeAgo'] >= 0;

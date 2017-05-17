@@ -92,9 +92,7 @@ div.tooltip {
 
         var g = svg.append("g");
 
-        svg
-        .call(zoom)
-        .call(zoom.event)
+        
 
         var albersProjection = d3.geoAlbers()
           .scale(90000)
@@ -111,10 +109,7 @@ div.tooltip {
             .attr("class", "tooltip")
             .style("opacity", 0);
 
-        //add zoom from https://bl.ocks.org/mbostock/8fadc5ac9c2a9e7c5ba2
-        var zoom = d3.behavior.zoom()
-        .scaleExtent([1, 8])
-        .on("zoom", zoomed);
+        
 
 
         
@@ -367,12 +362,19 @@ div.tooltip {
           svg.select(".legendSize")
             .call(legendSize);
 
-          //Zoom function
-          function zoomed() {
-              g.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-          }
+          //add Zoom funtionality https://bl.ocks.org/mbostock/4e3925cdc804db257a86fdef3a032a45
+          svg.append("rect")
+            .attr("width", width)
+            .attr("height", height)
+            .style("fill", "none")
+            .style("pointer-events", "all")
+            .call(d3.zoom()
+                .scaleExtent([1 / 2, 4])
+                .on("zoom", zoomed));
 
-          d3.select(self.frameElement).style("height", height + "px");
+          function zoomed() {
+              g.attr("transform", d3.event.transform);
+          }
 
                   
 

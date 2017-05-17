@@ -378,7 +378,7 @@ div.tooltip {
           //Ajax test 
           $.ajax({
               url: "https://crossorigin.me/https://docs.google.com/spreadsheets/d/1ZKBvaJ2Vru1v37ufPXI-XE_bD1iSMPsXLcRWd7t3Vow/pub?gid=1870254444&single=true&output=csv",
-              dataType: 'jsonp', // Notice! JSONP <-- P (lowercase)
+              dataType: 'text/csv', // Notice! JSONP <-- P (lowercase)
               success: function (json) {
                   // do stuff with json (in this case an array)
                   alert("Success");

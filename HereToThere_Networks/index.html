@@ -138,10 +138,12 @@ div.tooltip {
         .attr("id", "radial-gradient");
 
         radialGradient.append("stop")
+            .attr('class', 'start')
             .attr("offset", "0%")
             .attr("stop-color", "red");
 
         radialGradient.append("stop")
+            .attr('class', 'end')
             .attr("offset", "100%")
             .attr("stop-color", "blue")
 

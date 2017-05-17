@@ -135,7 +135,9 @@ div.tooltip {
         //Radial Gradient via https://bl.ocks.org/pbogden/14864573a3971b640a55
         var radialGradient = svg.append("defs")
         .append("radialGradient")
-        .attr("id", "radial-gradient");
+        .attr("id", "radial-gradient")
+        .attr("cy", "0")
+        .attr("cx","0");
 
         radialGradient.append("stop")
             .attr('class', 'start')

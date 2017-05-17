@@ -108,28 +108,7 @@ div.tooltip {
 
 
 
-        //Add Gradients via https://www.freshconsulting.com/d3-js-gradients-the-easy-way/
 
-        /*var defs = svg.append("defs");
-
-        var gradient = defs.append("linearGradient")
-           .attr("id", "svgGradient")
-           .attr("x1", "0%")
-           .attr("x2", "100%")
-           .attr("y1", "0%")
-           .attr("y2", "100%");
-
-        gradient.append("stop")
-           .attr('class', 'start')
-           .attr("offset", "0%")
-           .attr("stop-color", "red")
-           .attr("stop-opacity", 1);
-
-        gradient.append("stop")
-           .attr('class', 'end')
-           .attr("offset", "100%")
-           .attr("stop-color", "blue")
-           .attr("stop-opacity", 1);*/
 
         //Radial Gradient via https://bl.ocks.org/pbogden/14864573a3971b640a55
         var radialGradient = svg.append("defs")
@@ -194,6 +173,7 @@ div.tooltip {
           .attr("fill", "#ccc")
           .attr("stroke","#fff")
           .attr("d", geoPath)
+          .attr("opacity", "0.5")
           .on("mouseover", function (d) {
             div.transition()
                 .duration(200)

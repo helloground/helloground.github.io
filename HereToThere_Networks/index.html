@@ -141,11 +141,13 @@ div.tooltip {
         radialGradient.append("stop")
             .attr('class', 'start')
             .attr("offset", "0%")
+            .attr("stop-opacity", 0)
             .attr("stop-color", "darkseagreen");
 
         radialGradient.append("stop")
             .attr('class', 'end')
             .attr("offset", "100%")
+            .attr("stop-opacity", 1)
             .attr("stop-color", "darkseagreen")
 
 

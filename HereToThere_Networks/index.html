@@ -106,6 +106,11 @@ div.tooltip {
             .attr("class", "tooltip")
             .style("opacity", 0);
 
+        //add zoom from https://bl.ocks.org/mbostock/8fadc5ac9c2a9e7c5ba2
+        var zoom = d3.behavior.zoom()
+        .scaleExtent([1, 8])
+        .on("zoom", zoomed);
+
 
         
        
@@ -357,8 +362,13 @@ div.tooltip {
           svg.select(".legendSize")
             .call(legendSize);
 
+          //Zoom function
+          function zoomed() {
+              g.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+          }
 
-         
+          d3.select(self.frameElement).style("height", height + "px");
+
                   
 
 

@@ -7,7 +7,7 @@
     <script src="js/counties.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.js"></script>
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    
     
     
     <style type="text/css">
@@ -111,7 +111,7 @@ div.tooltip {
 
         //Add Gradients via https://www.freshconsulting.com/d3-js-gradients-the-easy-way/
 
-        var defs = svg.append("defs");
+        /*var defs = svg.append("defs");
 
         var gradient = defs.append("linearGradient")
            .attr("id", "svgGradient")
@@ -130,7 +130,20 @@ div.tooltip {
            .attr('class', 'end')
            .attr("offset", "100%")
            .attr("stop-color", "blue")
-           .attr("stop-opacity", 1);
+           .attr("stop-opacity", 1);*/
+
+        //Radial Gradient via https://bl.ocks.org/pbogden/14864573a3971b640a55
+        var radialGradient = svg.append("defs")
+        .append("radialGradient")
+        .attr("id", "radial-gradient");
+
+        radialGradient.append("stop")
+            .attr("offset", "0%")
+            .attr("stop-color", "red");
+
+        radialGradient.append("stop")
+            .attr("offset", "100%")
+            .attr("stop-color", "#fff")
 
 
         var albersProjection = d3.geoAlbers()
@@ -358,7 +371,7 @@ div.tooltip {
               .attr("d", function (d) { return geoPath(d.arcs) })
               .attr("stroke-width", function (d) { return (d.arcs.coordinates.length / 2) })
               //add gradient stroke
-              .attr("stroke", "url(#svgGradient)")
+              .attr("stroke", "url(#radial-gradient)")
           //console.log(g);
 
           g.selectAll("circle")

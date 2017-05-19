@@ -74,6 +74,12 @@ div.tooltip {
     
 </head>
 <body>
+
+    <h2>
+        <span>U.S. commercial airports</span>, 2008<br>
+        great arcs and symbol map
+    </h2>
+
     <script>
         var width =2000,
     height =1760;
@@ -148,20 +154,7 @@ div.tooltip {
 
         
        
-        //start refactoring
-
-        //add county data
-      /* g.selectAll("path")
-          .data(counties_json.features)
-          .enter()
-          .append("path")
-           .attr("class", "county")
-          .attr("fill", "#ccc")
-          .attr("stroke", "blue")
-          .attr("fill-opacity",0.1)
-          .attr("d", geoPath)*/
-          
-        //console.log(neighborhoods_json.features);
+        
 
      
 
@@ -330,12 +323,16 @@ div.tooltip {
           //console.log(nhoods);
           //filter neighborhoods with no commuters
 
-          nhoodLocations = nhoodLocations.filter(function (d) {
-              return (d.arcs.coordinates.length > 0);
-          });
-          //filtered nhoods
-          console.log("Filtered");
+          //inital unfiltered list
+          console.log("Unfiltered");
           console.log(nhoodLocations);
+
+         /* nhoodLocations = nhoodLocations.filter(function (d) {
+              return (d.arcs.coordinates.length > 0);
+          });*/
+          //filtered nhoods
+          //console.log("Filtered");
+          //console.log(nhoodLocations);
 
           /*g.selectAll("arcs")
                .data(data)
@@ -355,7 +352,7 @@ div.tooltip {
               .attr("stroke-width", function (d) { return (d.arcs.coordinates.length / 2) })
               //add gradient stroke
               .attr("stroke", "url(#radial-gradient)")
-          //console.log(g);
+          console.log("arcs"+nhoodLocations);
 
           g.selectAll("circle")
              .data(nhoodLocations)
@@ -367,7 +364,7 @@ div.tooltip {
              .attr("cy", function (d) {
                  return albersProjection([d.Lon, d.Lat])[1];
              })
-             .attr("r", function (d) { return (d.arcs.coordinates.length + 1) })
+             .attr("r", function (d) { return (d.arcs.coordinates.length + 0.5) })
              .on("mouseover", function(d) {		
                  div.transition()		
                      .duration(200)		
@@ -384,7 +381,7 @@ div.tooltip {
            });
 
           //Add legend via http://d3-legend.susielu.com/#size-linear
-          var linearSize = d3.scaleLinear().domain([0, 5]).range([1, 10]);
+          /*var linearSize = d3.scaleLinear().domain([0, 5]).range([1, 10]);
           svg.append("g")
          .attr("class", "legendSize")
          .attr("transform", "translate(20, 40)");
@@ -397,7 +394,7 @@ div.tooltip {
             .orient('horizontal');
 
           svg.select(".legendSize")
-            .call(legendSize);
+            .call(legendSize);*/
 
           
 

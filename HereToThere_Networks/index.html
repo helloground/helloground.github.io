@@ -84,12 +84,18 @@ div.tooltip {
         var width =2000,
     height =1760;
         
-        
+        //Add Zoom https://bl.ocks.org/saifulazfar/f2da589a3abbe639fee0996198ace301
+       const zoom = d3.zoom()
+      .scaleExtent([1 / 4, 9])
+      .on('zoom', function () {
+          d3.select('g').attr('transform', d3.event.transform)
+      });
 
         var svg = d3.select("body")
           .append("svg")
           .attr("width", width)
           .attr("height", height)
+          .call(zoom)
           
           /*.call(d3.zoom().on("zoom", function () {
               svg.attr("transform", d3.event.transform)
@@ -111,6 +117,7 @@ div.tooltip {
         .attr("cy", "0")
         .attr("cx","0");
 
+
         radialGradient.append("stop")
             .attr('class', 'start')
             .attr("offset", "0%")
@@ -120,7 +127,9 @@ div.tooltip {
             .attr('class', 'end')
             .attr("offset", "100%")
             .attr("stop-color", "darkseagreen")
+        //gradient test
 
+        
 
         var albersProjection = d3.geoAlbers()
           .scale(90000)
@@ -137,12 +146,6 @@ div.tooltip {
             .attr("class", "tooltip")
             .style("opacity", 0);
 
-        
-
-
-        
-       
-        
 
      
 
@@ -409,20 +412,7 @@ div.tooltip {
           svg.select(".legendSize")
             .call(legendSize);*/
 
-          //add Pan/Zoom funtionality https://bl.ocks.org/mbostock/4e3925cdc804db257a86fdef3a032a45
-          //need to bring back zoom
-           svg.append("rect")
-             .attr("width", width)
-             .attr("height", height)
-             .style("fill", "none")
-             .style("pointer-events", "none")
-             .call(d3.zoom()
-                 .scaleExtent([1 / 2, 4])
-                 .on("zoom", zoomed));
-     
-           function zoomed() {
-               g.attr("transform", d3.event.transform);
-           }
+          
           
 
 

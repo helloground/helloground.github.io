@@ -341,15 +341,7 @@ div.tooltip {
               //add gradient stroke
               .attr("stroke", "url(#radial-gradient)")
            //New Mouseover technique
-                .on("mouseover", function (d) {
-                    console.log(d);
-                    tooltip.text("Trips: " + d.arcs.coordinates.length);
-                    tooltip.style("visibility", "visible");
-                })
-                  .on("mousemove", function () {
-                      return tooltip.style("top", (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px");
-                  })
-                  .on("mouseout", function () { return tooltip.style("visibility", "hidden"); })
+               
           console.log("arcs" + nhoodLocations);
 
           //Add tooltip revised code via http://mtaptich.github.io/d3-lessons/d3-maps-live-code-2/

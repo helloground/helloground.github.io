@@ -30,11 +30,11 @@
 	
 	}*/
 
-  .narcs{
+  .narcs:hover{
 	  
      
-      
-      stroke-opacity:.6;
+      stroke: darkseagreen;
+      stroke-opacity:1;
 	
 	}
 
@@ -339,7 +339,8 @@ div.tooltip {
               .attr("d", function (d) { return geoPath(d.arcs) })
               .attr("stroke-width", function (d) { return (d.arcs.coordinates.length / 2) })
               //add gradient stroke
-              .attr("stroke", "url(#radial-gradient)")
+              .attr("stroke", "darkseagreen")
+              .attr("stroke-opacity", "0.4")
            //New Mouseover technique
                
           console.log("arcs" + nhoodLocations);
@@ -368,7 +369,7 @@ div.tooltip {
              .attr("cy", function (d) {
                  return albersProjection([d.Lon, d.Lat])[1];
              })
-             .attr("r", function (d) { return (d.arcs.coordinates.length + 0.5) })
+             .attr("r", function (d) { return (d.arcs.coordinates.length + 1) })
               //New Mouseover technique
             .on("mouseover", function(d) {
                 console.log(d);
